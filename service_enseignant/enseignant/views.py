@@ -26,8 +26,11 @@ class EnseignantViewSet(
     queryset = Enseignant.objects.all()
     serializer_class = EnseignantSerializer
 
-    customProducer = CustomProducer('localhost:9092') 
-    customProducer.send('profnotif', 'vous avez un nouveau support')
+    # Tu dois appeller la fonction send de la classe CustomProducer quand tu crées un enseignant parce que tu dois envoyer un message à kafka
+    # Tu ne dois pas appeller ca comme tu a fait si dessous
+
+    # customProducer = CustomProducer('localhost:9092') 
+    # customProducer.send('profnotif', 'vous avez un nouveau support')
 
     # def create(self, request, *args, **kwargs):
     #     serializer = self.get_serializer(data=request.data)
